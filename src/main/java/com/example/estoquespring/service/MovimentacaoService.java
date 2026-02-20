@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.example.estoquespring.model.Movimentacao;
 import com.example.estoquespring.repository.MovimentacaoRepository;
 
+@Service
 public class MovimentacaoService {
     
     @Autowired

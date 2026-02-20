@@ -1,5 +1,7 @@
 package com.example.estoquespring.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,4 +19,7 @@ public class Fornecedor {
     private String telefone;
     private String email;
 
+    @OneToMany(mappedBy = "fornecedor")
+    private List<Movimentacao> movimentacoes;
+    
 }

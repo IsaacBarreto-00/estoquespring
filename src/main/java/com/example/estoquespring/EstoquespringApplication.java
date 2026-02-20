@@ -35,7 +35,7 @@ public class EstoquespringApplication {
 
 		Produto p = new Produto();
 		p.setNome("Camisa do Barcelona - N. 10");
-		p.setCategoria("Camisas de Time");
+		p.setCategoria(c);
 		p.setQtdeMinima(50);
 		p.setQtdeEstoque(120);
 		p.setUnidadeMedida("M");
@@ -49,11 +49,15 @@ public class EstoquespringApplication {
 
 		Movimentacao m = new Movimentacao();
 
-		m.setProduto(p.getNome());
-		m.setQuantidade(p.getQtdeEstoque());
-		m.setFornecedor(f.getNome());
+		m.setProduto(p); 
+		m.setFornecedor(f);
+		m.setQuantidade(20);
 		m.setTipoMovimentacao("Caminhões - Barcelona até Madrid");
-		// m.setData(new Date());
+
+		MovimentacaoService rep3 = ctx.getBean(MovimentacaoService.class);
+		rep3.salvar(m);
+		rep3.buscarPorId(m.getId());
+		rep3.buscarTodos();
 		
 		/* 
 		A a = ctx.getBean(A.class);

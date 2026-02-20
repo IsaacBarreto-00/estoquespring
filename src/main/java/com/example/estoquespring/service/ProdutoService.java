@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.example.estoquespring.model.Produto;
 import com.example.estoquespring.repository.ProdutoRepository;
 
+@Service
 public class ProdutoService {
     
     @Autowired

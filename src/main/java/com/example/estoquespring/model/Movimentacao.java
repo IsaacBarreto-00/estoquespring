@@ -8,11 +8,21 @@ import lombok.Data;
 @Data
 public class Movimentacao {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String produto;
     private String tipoMovimentacao;
     private int quantidade;
-    private LocalDate data;
-    private String fornecedor;
+
+    @Column(nullable = false)
+    private LocalDate data = LocalDate.now();
+
+    @ManyToOne
+    @JoinColumn(name = "produto_id", nullable = false)
+    private Produto produto;
+
+    @ManyToOne
+    @JoinColumn(name = "fornecedor_id", nullable = false)
+    private Fornecedor fornecedor;
 
 }
